@@ -1,0 +1,160 @@
+@charset "UTF-8";
+
+/* 
+Fundo: # 010101
+Botões: # abd1c6
+Textos: Principal em # fffffe ou # ffffff sobre fundo escuro.
+Detalhes/Ícones: # 94a1b2 
+*/
+
+:root {
+    --cor0: #010101;
+    --cor01:#abd1c6;
+    --cor02:#fffffe;
+    --cor03:#94a1b2;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--cor0);
+    color: #fffffe;
+    font-family: "IBM Plex Serif", serif;
+    line-height: 1.6;
+}
+
+
+/*menu*/
+
+.menu {
+    background-color:var(--cor0);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #abd1c6;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.menu h1 {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1.8em;
+    color: var(--cor02);
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5em;
+}
+
+.menu a {
+    color: var(--cor01);
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: var(--cor02);
+}
+
+/* Intro */
+
+.intro {
+    padding: 3rem 2rem;
+    text-align: center;
+    background-image: linear-gradient(to right,var(--cor01),var(--cor0));
+}
+
+.intro h2 {
+    font-family:'Cinzel Decorative', cursive;
+    font-size: 2em;
+    margin-bottom: 1rem;
+    color: var(--cor01);
+}
+
+.intro p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+
+/* Grade */
+
+.book-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 2rem;
+    padding: 3rem 2rem;
+}
+
+/* Flip Card Container */
+
+.book-card {
+    perspective: 1000px;
+    height: 380px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.book-card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Card Faces */
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--cor01);
+    color: #fffffe;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    box-shadow: 0 0 20px var(--cor03);
+}
+
+.card-front img {
+    width: 50%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.card-front h3, .card-back h3 {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1.2rem;
+    color: var(--cor02);
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1rem;
+}
