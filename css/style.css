@@ -1,17 +1,10 @@
 @charset "UTF-8";
 
-/* 
-Fundo: # 010101
-Botões: # abd1c6
-Textos: Principal em # fffffe ou # ffffff sobre fundo escuro.
-Detalhes/Ícones: # 94a1b2 
-*/
-
 :root {
-    --cor0: #010101;
-    --cor01:#abd1c6;
-    --cor02:#fffffe;
-    --cor03:#94a1b2;
+    --cor0: #1e202c;      /* Fundo escuro */
+    --cor01: #60519b;     /* Roxo destaque */
+    --cor02: #bfc0d1;     /* Texto claro */
+    --cor03: #31323e;     /* Cinza escuro (borda, detalhes) */
 }
 
 
@@ -22,7 +15,7 @@ Detalhes/Ícones: # 94a1b2
 }
 
 body {
-    background: var(--cor0);
+    background: linear-gradient(to right, #3f2b63,            #12101c);
     color: #fffffe;
     font-family: "IBM Plex Serif", serif;
     line-height: 1.6;
@@ -32,12 +25,11 @@ body {
 /*menu*/
 
 .menu {
-    background-color:var(--cor0);
+    background: linear-gradient(to right, #3f2b63,#12101c);
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #abd1c6;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -68,10 +60,31 @@ body {
 
 /* Intro */
 
-.intro {
-    padding: 3rem 2rem;
+.intro-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.intro-text {
+    max-width: 500px;
+    text-align: left;
+}
+
+.intro-text h2 {
     text-align: center;
-    background-image: linear-gradient(to right,var(--cor01),var(--cor0));
+}
+
+.intro-image img {
+    width: 280px;
+    max-width: 100%;
+    height: auto;
 }
 
 .intro h2 {
@@ -157,4 +170,82 @@ body {
     justify-content: center;
     text-align: center;
     padding: 2rem 1rem;
+}
+
+/* Telas médias: tablets e dispositivos entre 768px e 1024px */
+@media screen and (max-width: 1024px) {
+    .intro-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .intro-text {
+        max-width: 100%;
+    }
+
+    .intro-image img {
+        width: 200px;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .book-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        padding: 2rem 1rem;
+    }
+
+    .card-front img {
+        height: 200px;
+    }
+
+    .book-card {
+        height: 350px;
+    }
+}
+
+/* Telas pequenas: celulares */
+@media screen and (max-width: 600px) {
+    .menu ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .menu h1 {
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    .intro h2 {
+        font-size: 1.5em;
+    }
+
+    .intro p {
+        font-size: 1rem;
+    }
+
+    .book-grid {
+        grid-template-columns: 1fr;
+        padding: 1.5rem 1rem;
+    }
+
+    .book-card {
+        height: 320px;
+    }
+
+    .card-front img {
+        height: 180px;
+    }
+
+    .card-front h3,
+    .card-back h3 {
+        font-size: 1rem;
+    }
+
+    .card-back {
+        font-size: 0.9rem;
+        padding: 1rem;
+    }
 }
