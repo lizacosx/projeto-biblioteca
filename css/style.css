@@ -69,90 +69,87 @@ body, html {
       opacity: 1;
 }
 
-/* Grade */
-
-.book-grid {
-    width: 100%;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
-    gap: 2rem;
-    padding: 3rem 2rem;
+.book-box {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 3rem auto;
+  max-width: 1000px;
+  padding: 1rem;
+  background-color: #1a1a1a;
 }
 
-/* Flip Card Container */
-
-.book-card {
-    perspective: 1000px;
-    height: 380px;
-    cursor: pointer;
+.flip-card {
+  width: 250px;
+  height: 360px;
+  perspective: 1000px;
 }
 
-.card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
 }
 
-.book-card:hover .card-inner {
-    transform: rotateY(180deg);
+.flip-card:hover .flip-inner {
+  transform: rotateY(180deg);
 }
 
-/* Card Faces */
-
-.card-front, .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: var(--cor01);
-    color: var(--cor06);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    box-shadow: 0 0 20px var(--cor03);
+.flip-front,
+.flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  overflow: hidden;
 }
 
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
+.flip-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.card-front img {
-    max-width: 100%;
-    height: 200px;
-    object-fit: contain;
-    display: block;
-    margin-bottom: 1rem;
+.flip-back {
+  background-color: #272727;
+  color: #fff;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'IBM Plex Serif', serif;
+  padding: 1rem;
+  text-align: center;
 }
 
-.card-front h3, .card-back h3 {
-    font-family: 'Cinzel Decorative', cursive;
-    font-size: 1.1rem;
-    font-weight: normal;
-    margin: 0.95rem 0 0;
-    text-align: center;
-    color: var(--cor05);
+.flip-back h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 
-.card-back {
-    transform: rotateY(180deg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: justify;
-    font-size: 0.85rem;
-    line-height: 1.5;
-    padding: 1rem;
-    font-family: "IBM Plex Serif", serif;
-    overflow: hidden;
+.flip-back p {
+  font-size: 1rem;
+  margin: 0.3rem 0;
+  opacity: 0.8;
+}
+
+.book-info {
+  flex: 1;
+  color: #f0f0f0;
+}
+
+.book-info h1 {
+  font-size: 1.8rem;
+  font-family: 'Cinzel Decorative', serif;
+  margin-bottom: 1rem;
+}
+
+.book-info p {
+  font-size: 1rem;
+  font-family: 'IBM Plex Serif', serif;
+  line-height: 1.5;
 }
