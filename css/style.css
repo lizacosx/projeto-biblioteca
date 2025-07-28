@@ -124,23 +124,37 @@ body, html {
   direction: ltr; 
 }
 
-.footer {
-  background: #1c1c1c;
-  color: #ccc;
+.footer-moderno {
+  background-color: #1c1c1c;
+  color: #e0e0e0;
+  padding: 4rem 2rem 2rem;
+  font-family: 'Courier New', monospace;
   text-align: center;
-  padding: 2rem 1rem;
-  font-size: 0.9rem;
-  font-family: monospace;
-  border-top: 1px solid #333;
 }
 
-.footer {
-  background: #1c1c1c; /* tom suave já usado */
-  color: white;       /* cor de texto que já combina */
-  text-align: center;
-  padding: 2rem 1rem;
+.footer-nome {
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.footer-pattern {
+  font-size: 1.5rem;
+  color: #ccc;
+  letter-spacing: 0.4em;
+  margin-bottom: 1.5rem;
+}
+
+.footer-bottom {
   font-size: 0.9rem;
-  font-family: monospace;
+  color: #999;
+}
+
+.footer-bottom a {
+  color: #e0e0e0;
+  text-decoration: underline;
 }
 
 @media (max-width: 1024px) {
